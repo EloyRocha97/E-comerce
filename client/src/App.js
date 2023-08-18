@@ -13,7 +13,7 @@ const PageWithNavbar = ({ element: PageComponent }) => (
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<PageWithNavbar element={Home} />} />
