@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import Logo from "../../IMG/Glamour.png";
 import LoginButton from "./Login/loginButton";
 import LogOutButton from "./Login/logOutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import style from "./landing.module.css";
 
 const Landing = () => {
+  const { isAuthenticated } = useAuth0();
   return (
     <div>
-      <LoginButton />
-      <LogOutButton />
+      {isAuthenticated ? <LogOutButton /> : <LoginButton />}
 
       <br></br>
       <br></br>
