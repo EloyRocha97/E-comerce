@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<PageWithNavbar element={Landing} />} />
         <Route path="/home" element={<PageWithNavbar element={Home} />} />
         <Route path="/form" element={<Form />} />
         <Route path="/detail" element={<PageWithNavbar element={Detail} />} />

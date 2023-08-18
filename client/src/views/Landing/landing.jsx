@@ -1,21 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../IMG/Glamour.png";
-import LoginButton from "./Login/loginButton";
-import LogOutButton from "./Login/logOutButton";
-import { useAuth0 } from "@auth0/auth0-react";
 
 import style from "./landing.module.css";
 
 const Landing = () => {
-  const { isAuthenticated } = useAuth0();
   return (
     <div>
-      {isAuthenticated ? <LogOutButton /> : <LoginButton />}
-
-      <br></br>
-      <br></br>
-      <Link to="/home">
+      <h1>Hola</h1>
+      {/* <Link to="/home">
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
             src={Logo}
@@ -23,7 +16,7 @@ const Landing = () => {
             style={{ width: "200px", height: "50px", marginRight: "10px" }}
           />
         </div>
-      </Link>
+      </Link> */}
     </div>
   );
 };
