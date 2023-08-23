@@ -1,11 +1,12 @@
 .container {
   /* border: 1px solid black; */
   display: flex;
-  width: 75%; /* Ancho se ajustará al contenido */
+  width: 80%; /* Ancho se ajustará al contenido */
   height: 100%; /* Altura completa de la pantalla */
   justify-content: center; /* Alinea las tarjetas horizontalmente en el centro */
   align-items: center; /* Alinea las tarjetas verticalmente en el centro */
   flex-wrap: wrap;
   gap: 1em;
   margin: 0 auto; /* Centra horizontalmente el contenedor */
+  margin-right: 50px;
 }

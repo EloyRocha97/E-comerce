@@ -35,12 +35,27 @@ module.exports = (sequelize) => {
         },
       },
       tipo: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM(
+          "Buzo",
+          "Remera",
+          "Pantalon",
+          "Camisa",
+          "Bermuda",
+          "Campera"
+        ),
+        allowNull: false,
+      },
+      talla: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,
+      },
+      genero: {
+        type: DataTypes.ENUM("Hombre", "Mujer"),
         allowNull: false,
       },
       isActive: {
         type: DataTypes.BOOLEAN,
-        allowNull: true,
+        allowNull: false,
         defaultValue: true,
       },
     },

@@ -1,0 +1,84 @@
+/* Main container */
+
+.mainContainer {
+  border: 1px solid #f50057;
+  width: 600px;
+  height: 280px;
+  margin: 0 auto;
+  margin-left: 205px;
+  margin-bottom: 40px;
+}
+/* Slider container */
+.sliderContainer {
+  position: relative;
+  height: 100%;
+}
+
+.containerImages {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden; /* Agrega overflow: hidden para recortar las imágenes */
+  transition: transform 0.5s ease-in-out; /* Agrega una transición suave */
+}
+
+.containerImages ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  width: fit-content; /* Establece el ancho del contenedor de imágenes */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.containerImages ul li {
+  flex: 0 0 600px;
+}
+
+/* Arrows */
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* dots carrusel */
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dotContainerItem {
+  /* margin: 12px 5px; */
+
+  cursor: pointer;
+  font-size: 10px;
+  text-align: center;
+}
+
+div.active {
+  background: #f5005646;
+  width: 8px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -9,15 +9,6 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-      // imagen: {
-      //   type: DataTypes.TEXT,
-      //   allowNull: false,
-      //   validate: {
-      //     isUrl: {
-      //       msg: "La imagen debe de ser una URL valida",
-      //     },
-      //   },
-      // },
       nombre: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -51,11 +42,6 @@ module.exports = (sequelize) => {
           },
         },
       },
-
-      // shoppingHistory: {
-      //   type: DataTypes.ARRAY(DataTypes.INTEGER),
-      //   allowNull: true,
-      // },
       rol: {
         type: DataTypes.ENUM("admin", "user", "superAdmin"),
         defaultValue: "user",

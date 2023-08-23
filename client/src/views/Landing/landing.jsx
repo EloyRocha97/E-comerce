@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../IMG/Glamour.png";
 
 import style from "./landing.module.css";
 
 const Landing = () => {
   return (
     <div>
+      <br></br>
+      <br></br>
+      <br></br>
       <h1>Hola</h1>
       {/* <Link to="/home">
         <div style={{ display: "flex", alignItems: "center" }}>

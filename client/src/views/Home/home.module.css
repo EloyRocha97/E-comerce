@@ -1,0 +1,21 @@
+.margin {
+  margin-top: 50px;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: auto 1fr; /* Columna automática para filtros, resto para cartas */
+  gap: 20px; /* Espacio entre columnas */
+}
+
+.filtrosWrapper {
+  /* Asegúrate de que los elementos de filtro tengan suficiente ancho */
+  min-width: 80px;
+  max-width: 80px;
+  margin-left: 20px;
+}
+
+.cardContainer {
+  flex: 1;
+  margin-right: 40px; /* En lugar de margin-right */
+}

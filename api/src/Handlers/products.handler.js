@@ -47,14 +47,24 @@ const getProduct = async (req, res) => {
 
 const postProduct = async (req, res) => {
   try {
-    const { nombre, imagen, descripcion, precio, tipo, categoryName } =
-      req.body;
+    const {
+      nombre,
+      imagen,
+      descripcion,
+      precio,
+      tipo,
+      talla,
+      genero,
+      categoryName,
+    } = req.body;
     const newProduct = await createProduct(
       nombre,
       imagen,
       descripcion,
       precio,
       tipo,
+      talla,
+      genero,
       categoryName
     );
     res.status(200).json(newProduct);

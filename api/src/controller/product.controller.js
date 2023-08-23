@@ -6,6 +6,8 @@ const createProduct = async (
   descripcion,
   precio,
   tipo,
+  talla,
+  genero,
   categoryId
 ) => {
   if (!nombre || typeof nombre !== "string") {
@@ -23,6 +25,13 @@ const createProduct = async (
     throw new Error("Debe proporcionar una categoría");
   }
 
+  if (!talla) {
+    throw new Error("Debe proporcionar una talla");
+  }
+  if (!genero) {
+    throw new Error("Debe proporcionar un genero");
+  }
+
   // Buscar la categoría por su nombre
   const category = await Category.findOne({ where: { nombre: categoryId } });
   if (!category) {
@@ -36,6 +45,8 @@ const createProduct = async (
     descripcion,
     precio,
     tipo,
+    talla,
+    genero,
   });
   await newProduct.addCategory(category);
 
