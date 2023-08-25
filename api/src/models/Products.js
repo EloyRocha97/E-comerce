@@ -41,7 +41,10 @@ module.exports = (sequelize) => {
           "Pantalon",
           "Camisa",
           "Bermuda",
-          "Campera"
+          "Campera",
+          "Zapatilla",
+          "Accesorio",
+          "Todo"
         ),
         allowNull: false,
       },
