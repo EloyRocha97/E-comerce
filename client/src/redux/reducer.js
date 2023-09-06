@@ -17,6 +17,7 @@ const initialState = {
   categorys: [],
   filteredProductsXgenero: [], // Variable para almacenar el resultado del filtro género
   filteredProductsXropa: [], // Variable para almacenar el resultado del filtro género y tipo
+  filteredProductsXtalla: [], // Variable para almacenar el resultado del filtro ropa y talla
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -43,17 +44,19 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_BY_GENERO:
       const payload = action.payload;
-      const all = state.allProducts;
+      const all =
+        state.filteredProductsXropa.length > 0
+          ? state.filteredProductsXropa
+          : state.filteredProductsXtalla.length > 0
+          ? state.filteredProductsXtalla
+          : state.allProducts;
       let estadoGenero;
       if (payload === "Ambos") {
         estadoGenero = all;
-        console.log("estadoGenero", estadoGenero);
       } else {
         estadoGenero = all.filter((el) => el.genero === payload);
-        console.log("estadoGenero", estadoGenero);
       }
       state.filteredProductsXgenero = estadoGenero;
-      console.log("pivot", state.filteredProductsXgenero);
 
       return {
         ...state,
@@ -62,19 +65,16 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_BY_ROPA:
       const porRopa = action.payload;
-      const allTodos = state.filteredProductsXgenero;
+      const allTodos =
+        state.filteredProductsXgenero.length > 0
+          ? state.filteredProductsXgenero
+          : state.filteredProductsXtalla.length > 0
+          ? state.filteredProductsXtalla
+          : state.allProducts;
 
       let estadoRopa;
 
-      if (
-        porRopa === "Buzo" ||
-        porRopa === "Campera" ||
-        porRopa === "Remera" ||
-        porRopa === "Camisa" ||
-        porRopa === "Pantalon" ||
-        porRopa === "Bermuda" ||
-        porRopa === "Zapatilla"
-      ) {
+      if (porRopa !== "Todo") {
         estadoRopa = allTodos.filter((el) => el.tipo === porRopa);
       } else if (porRopa === "Todo") {
         estadoRopa = allTodos;
@@ -82,14 +82,18 @@ const rootReducer = (state = initialState, action) => {
         estadoRopa = allTodos;
       }
       state.filteredProductsXropa = estadoRopa;
-      console.log("Ropaa", state.filteredProductsXropa);
       return {
         ...state,
         products: estadoRopa,
       };
 
     case FILTER_BY_TALLA:
-      const porTalla = state.filteredProductsXropa;
+      const porTalla =
+        state.filteredProductsXgenero.length > 0
+          ? state.filteredProductsXgenero
+          : state.filteredProductsXropa.length > 0
+          ? state.filteredProductsXropa
+          : state.allProducts;
       let filterTalla = [];
 
       if (!action.payload || action.payload === "Todos") {
@@ -102,6 +106,7 @@ const rootReducer = (state = initialState, action) => {
           }
         }
       }
+      state.filteredProductsXtalla = filterTalla;
       return {
         ...state,
         products: filterTalla,
