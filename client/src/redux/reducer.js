@@ -12,21 +12,21 @@ const initialState = {
   users: [],
   products: [],
   allProducts: [],
+  productsAll: [],
   productById: [],
   categorys: [],
+  filteredProductsXgenero: [], // Variable para almacenar el resultado del filtro género
+  filteredProductsXropa: [], // Variable para almacenar el resultado del filtro género y tipo
 };
 
 const rootReducer = (state = initialState, action) => {
-  // console.log("Tallas en state.allProducts:");
-  // state.allProducts.forEach((product) => {
-  //   console.log(product.talla);
-  // });
   switch (action.type) {
     case GET_PRODUCTS:
       return {
         ...state,
         products: action.payload,
         allProducts: action.payload,
+        productsAll: action.payload,
       };
 
     case GET_PRODUCT_BY_ID:
@@ -40,47 +40,32 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         categorys: action.payload,
       };
-    //////////////////////////////// FILTROS ////////////////////////////////
-    case FILTER_BY_CATEGORY:
-      const porCategoria = action.payload;
-      let estadoCategoria;
-      if (
-        porCategoria === "Ropa" ||
-        porCategoria === "Zapatillas" ||
-        porCategoria === "Accesorios"
-      ) {
-        estadoCategoria = state.allProducts.filter(
-          (el) => el.Categories[0].nombre === porCategoria
-        );
-      } else {
-        estadoCategoria = state.allProducts;
-      }
-      return {
-        ...state,
-        products: estadoCategoria,
-      };
-    // GENERO
+
     case FILTER_BY_GENERO:
-      const porGenero = action.payload;
+      const payload = action.payload;
+      const all = state.allProducts;
       let estadoGenero;
-      if (porGenero === "Hombre" || porGenero === "Mujer") {
-        estadoGenero = state.allProducts.filter(
-          (el) => el.genero === porGenero
-        );
-      } else if (porGenero === "Ambos") {
-        estadoGenero = state.allProducts;
+      if (payload === "Ambos") {
+        estadoGenero = all;
+        console.log("estadoGenero", estadoGenero);
       } else {
-        estadoGenero = state.allProducts;
+        estadoGenero = all.filter((el) => el.genero === payload);
+        console.log("estadoGenero", estadoGenero);
       }
+      state.filteredProductsXgenero = estadoGenero;
+      console.log("pivot", state.filteredProductsXgenero);
+
       return {
         ...state,
         products: estadoGenero,
       };
-    // ROPA
+
     case FILTER_BY_ROPA:
       const porRopa = action.payload;
-      //
+      const allTodos = state.filteredProductsXgenero;
+
       let estadoRopa;
+
       if (
         porRopa === "Buzo" ||
         porRopa === "Campera" ||
@@ -90,38 +75,36 @@ const rootReducer = (state = initialState, action) => {
         porRopa === "Bermuda" ||
         porRopa === "Zapatilla"
       ) {
-        estadoRopa = state.allProducts.filter((el) => el.tipo === porRopa);
+        estadoRopa = allTodos.filter((el) => el.tipo === porRopa);
       } else if (porRopa === "Todo") {
-        estadoRopa = state.allProducts;
+        estadoRopa = allTodos;
       } else {
-        estadoRopa = state.allProducts;
+        estadoRopa = allTodos;
       }
+      state.filteredProductsXropa = estadoRopa;
+      console.log("Ropaa", state.filteredProductsXropa);
       return {
         ...state,
         products: estadoRopa,
       };
-    // TALLA
+
     case FILTER_BY_TALLA:
-      const porTalla = action.payload;
-      //
-      let estadoTallas;
-      if (
-        porTalla === "S" ||
-        porTalla === "M" ||
-        porTalla === "L" ||
-        porTalla === "XL" ||
-        porTalla === "38" ||
-        porTalla === "40" ||
-        porTalla === "42" ||
-        porTalla === "44"
-      ) {
-        estadoTallas = state.products.filter((el) => el.talla === porTalla);
+      const porTalla = state.filteredProductsXropa;
+      let filterTalla = [];
+
+      if (!action.payload || action.payload === "Todos") {
+        filterTalla = state.filteredProductsXropa;
       } else {
-        estadoTallas = state.products;
+        for (let i = 0; i < porTalla.length; i++) {
+          let found = porTalla[i].talla.find((t) => t === action.payload);
+          if (found) {
+            filterTalla.push(porTalla[i]);
+          }
+        }
       }
       return {
         ...state,
-        products: estadoTallas,
+        products: filterTalla,
       };
 
     default:

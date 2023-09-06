@@ -58,3 +58,8 @@ export const filterByTalla = (payload) => {
     payload,
   };
 };
+
+// export const APPLY_FILTERS = "APPLY_FILTERS";
+// export const applyFilters = () => ({
+//   type: APPLY_FILTERS,
+// });

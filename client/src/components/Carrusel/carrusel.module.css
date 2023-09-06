@@ -2,10 +2,10 @@
 
 .mainContainer {
   border: 1px solid #f50057;
-  width: 600px;
-  height: 280px;
+  width: 800px;
+  height: 350px;
   margin: 0 auto;
-  margin-left: 205px;
+  margin-left: 27.5%;
   margin-bottom: 40px;
 }
 /* Slider container */

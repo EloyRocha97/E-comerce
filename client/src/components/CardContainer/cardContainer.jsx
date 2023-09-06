@@ -7,10 +7,10 @@ const CardContainer = () => {
 
   return (
     <div className={style.container}>
-      {products.map((product) => {
+      {products.map((product, index) => {
         return (
           <Card
-            key={product.id}
+            key={`${product.id}-${index}`} // Combinar id con el índice
             nombre={product.nombre}
             imagen={product.imagen}
             descripcion={product.descripcion}

@@ -26,11 +26,6 @@ const Filtros = () => {
   const [prendas, setPrenda] = useState("");
   const dispatch = useDispatch();
 
-  const [categoria, setCategoria] = useState("");
-  const [genero, setGenero] = useState("");
-  const [ropa, setRopa] = useState("");
-  const [talla, setTalla] = useState("");
-
   const handleChange = (event) => {
     setPrenda(event.target.value);
   };
@@ -52,30 +47,6 @@ const Filtros = () => {
 
   return (
     <div className={style.filtrosWrapper}>
-      {/* FILTRAR POR CATEGORIA */}
-      <div>
-        <FormControl onChange={(e) => handleFilterCategoria(e)}>
-          <FormLabel id="demo-radio-buttons-group-label">Categoria</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
-            name="radio-buttons-group"
-          >
-            <FormControlLabel value="Ropa" control={<Radio />} label="Ropa" />
-            <FormControlLabel
-              value="Zapatillas"
-              control={<Radio />}
-              label="Zapatillas"
-            />
-            <FormControlLabel
-              value="Accesorios"
-              control={<Radio />}
-              label="Accesorios"
-            />
-          </RadioGroup>
-        </FormControl>
-      </div>
-
       {/* FILTRAR POR GENERO */}
       <div>
         <FormControl onChange={(e) => handleFilterGenero(e)}>
@@ -119,30 +90,45 @@ const Filtros = () => {
         </FormControl>
       </div>
 
-      {/* FILTRAR POR TALLA */}
+      {/* FILTRAR POR Talla */}
+      <div>
+        <FormControl onChange={(e) => handleFilterTalla(e)}>
+          <FormLabel id="demo-radio-buttons-group-label">Talles</FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="female"
+            name="radio-buttons-group"
+          >
+            <FormControlLabel value="Todos" control={<Radio />} label="Todos" />
+            <FormLabel id="demo-radio-buttons-group-label">
+              Talla Pantalon
+            </FormLabel>
+            <FormControlLabel value="S" control={<Radio />} label="S" />
+            <FormControlLabel value="M" control={<Radio />} label="M" />
+            <FormControlLabel value="L" control={<Radio />} label="L" />
+            <FormControlLabel value="XL" control={<Radio />} label="XL" />
 
-      <div className={style.filtGen}>
-        {/* required - disabled - defaultChecked */}
-        <FormGroup
-          onChange={(e) => handleFilterTalla(e)}
-          className={style.colorTalle}
-        >
-          Talles remeras
-          <FormControlLabel control={<Checkbox value="S" />} label="S" />
-          <FormControlLabel control={<Checkbox value="M" />} label="M" />
-          <FormControlLabel control={<Checkbox value="L" />} label="L" />
-          <FormControlLabel control={<Checkbox value="XL" />} label="XL" />
-          Talles pantalon
-          <FormControlLabel control={<Checkbox value="38" />} label="38" />
-          <FormControlLabel control={<Checkbox value="40" />} label="40" />
-          <FormControlLabel control={<Checkbox value="42" />} label="42" />
-          <FormControlLabel control={<Checkbox value="44" />} label="44" />
-          Talle zapatillas
-          <FormControlLabel control={<Checkbox value="39" />} label="39" />
-          <FormControlLabel control={<Checkbox value="40" />} label="40" />
-          <FormControlLabel control={<Checkbox value="41" />} label="41" />
-          <FormControlLabel control={<Checkbox value="42" />} label="42" />
-        </FormGroup>
+            <FormLabel id="demo-radio-buttons-group-label">
+              Talla Pantalon
+            </FormLabel>
+            <FormControlLabel value="38" control={<Radio />} label="38" />
+            <FormControlLabel value="40" control={<Radio />} label="40" />
+            <FormControlLabel value="42" control={<Radio />} label="42" />
+            <FormControlLabel value="44" control={<Radio />} label="44" />
+
+            <FormLabel id="demo-radio-buttons-group-label">
+              Talla Zapatillas
+            </FormLabel>
+            <FormControlLabel value=" 39" control={<Radio />} label="39" />
+            <FormControlLabel value=" 40" control={<Radio />} label="40" />
+            <FormControlLabel value=" 41" control={<Radio />} label="41" />
+            <FormControlLabel value=" 42" control={<Radio />} label="42" />
+            {/* <FormLabel id="demo-radio-buttons-group-label">
+              Talles
+            </FormLabel>
+            <FormControlLabel value="todos" control={<Radio />} label="Todos" /> */}
+          </RadioGroup>
+        </FormControl>
       </div>
     </div>
   );
