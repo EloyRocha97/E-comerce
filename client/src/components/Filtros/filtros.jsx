@@ -81,7 +81,6 @@ const Filtros = () => {
             <MenuItem value="Buzo">Buzo</MenuItem>
             <MenuItem value="Campera">Campera</MenuItem>
             <MenuItem value="Remera">Remera</MenuItem>
-            <MenuItem value="Camisa">Camisa</MenuItem>
             <MenuItem value="Pantalon">Pantalon</MenuItem>
             <MenuItem value="Bermuda">Bermuda</MenuItem>
             <MenuItem value="Zapatilla">Zapatilla</MenuItem>
@@ -119,6 +118,8 @@ const Filtros = () => {
             <FormLabel id="demo-radio-buttons-group-label">
               Talla Zapatillas
             </FormLabel>
+            <FormControlLabel value=" 37" control={<Radio />} label="37" />
+            <FormControlLabel value=" 38" control={<Radio />} label="38" />
             <FormControlLabel value=" 39" control={<Radio />} label="39" />
             <FormControlLabel value=" 40" control={<Radio />} label="40" />
             <FormControlLabel value=" 41" control={<Radio />} label="41" />

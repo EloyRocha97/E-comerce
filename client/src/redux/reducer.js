@@ -97,7 +97,10 @@ const rootReducer = (state = initialState, action) => {
       let filterTalla = [];
 
       if (!action.payload || action.payload === "Todos") {
-        filterTalla = state.filteredProductsXropa;
+        filterTalla =
+          state.filteredProductsXropa > 0
+            ? state.filteredProductsXropa
+            : state.allProducts;
       } else {
         for (let i = 0; i < porTalla.length; i++) {
           let found = porTalla[i].talla.find((t) => t === action.payload);

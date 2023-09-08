@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/NavBar/navbar";
 import { Home, Form, Detail } from "./views";
 import { Routes, Route } from "react-router-dom";
+import "./app.css";
 
 // Componente contenedor para las páginas que necesitan el Navbar
 const PageWithNavbar = ({ element: PageComponent }) => (
@@ -13,7 +14,7 @@ const PageWithNavbar = ({ element: PageComponent }) => (
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Routes>
         <Route path="/" element={<PageWithNavbar element={Home} />} />
         <Route path="/form" element={<Form />} />

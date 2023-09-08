@@ -1,21 +1,28 @@
 .margin {
   margin-top: 50px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; */
 }
 
 .home {
-  display: grid;
-  grid-template-columns: auto 1fr; /* Columna automática para filtros, resto para cartas */
-  gap: 20px; /* Espacio entre columnas */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 180px;
 }
 
 .filtrosWrapper {
-  /* Asegúrate de que los elementos de filtro tengan suficiente ancho */
   min-width: 80px;
   max-width: 80px;
   margin-left: 20px;
+  width: 20%;
 }
 
 .cardContainer {
-  flex: 1;
+  width: 100%;
   margin-right: 40px; /* En lugar de margin-right */
 }

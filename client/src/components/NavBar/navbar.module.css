@@ -1,15 +1,19 @@
-.navLogo {
-  margin-left: 410px;
+.logo {
+  width: 50px;
+  padding-left: 20px;
 }
 .navLogin {
-  margin-top: 9px;
-  margin-left: 360px;
+  padding-right: 20px;
+  width: 50px;
 }
 
 .navBar {
+  left: 0;
   position: fixed;
   top: 0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   background: linear-gradient(
     135deg,
@@ -18,17 +22,11 @@
   );
   color: #ffffff;
   font: normal 11px Varela Round, sans-serif;
-  height: 40px;
+  height: 50px;
   letter-spacing: 5px;
   text-align: center;
   text-transform: uppercase;
   width: 100%;
-  animation: move linear 2000ms infinite;
+  /* animation: move linear 2000ms infinite; */
   z-index: 2;
 }
-/* border-bottom: 1px solid black;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  align-items: center; */

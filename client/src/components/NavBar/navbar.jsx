@@ -17,11 +17,7 @@ const Navbar = () => {
     <div className={style.navBar}>
       <div className={style.navLogo}>
         <Link to="/">
-          <img
-            src={Logo}
-            alt="Logo de GlamourGrove"
-            style={{ width: "45px", height: "40px", marginRight: "10px" }}
-          />
+          <img src={Logo} alt="Logo de GlamourGrove" className={style.logo} />
         </Link>
       </div>
       <div className={style.navLogin}>

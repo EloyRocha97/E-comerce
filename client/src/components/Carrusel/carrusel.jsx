@@ -5,7 +5,7 @@ import style from "./carrusel.module.css";
 const Carrusel = () => {
   const listImg = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const imageWidth = 600;
+  const imageWidth = 1000;
 
   useEffect(() => {
     const newPosition = -currentIndex * imageWidth;
@@ -40,7 +40,7 @@ const Carrusel = () => {
             {data.map((image) => {
               return (
                 <li key={image.id}>
-                  <img src={image.imgUrl} width={800} height={350} />
+                  <img src={image.imgUrl} className={style.nameImage} />
                 </li>
               );
             })}
@@ -51,12 +51,10 @@ const Carrusel = () => {
             <div
               key={idx}
               className={`dotContainerItem ${
-                idx === currentIndex ? style.active : ""
+                idx === currentIndex ? style.active : style.disable
               }`}
               onClick={() => goToSlide(idx)}
-            >
-              &#8277;
-            </div>
+            ></div>
           ))}
         </div>
       </div>
