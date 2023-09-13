@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/NavBar/navbar";
-import { Home, Form, Detail } from "./views";
+import { Home, Detail } from "./views";
 import { Routes, Route } from "react-router-dom";
 import "./app.css";
 
@@ -17,7 +17,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<PageWithNavbar element={Home} />} />
-        <Route path="/form" element={<Form />} />
         <Route path="/detail" element={<PageWithNavbar element={Detail} />} />
       </Routes>
     </div>

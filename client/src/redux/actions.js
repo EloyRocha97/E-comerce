@@ -1,5 +1,14 @@
 import axios from "axios";
 
+// export const GET_CATEGORY = "GET_CATEGORY";
+// export const getCategory = () => {
+//   return async function (dispatch) {
+//     const dataCategory = await axios.get("http://localhost:3001/category");
+//     const category = dataCategory.data;
+//     dispatch({ type: GET_CATEGORY, payload: category });
+//   };
+// };
+
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const getProducts = () => {
   return async function (dispatch) {
@@ -9,12 +18,21 @@ export const getProducts = () => {
   };
 };
 
-export const GET_CATEGORY = "GET_CATEGORY";
-export const getCategory = () => {
+export const GET_TALLAS = "GET_TALLAS";
+export const getTallas = () => {
   return async function (dispatch) {
-    const dataCategory = await axios.get("http://localhost:3001/category");
-    const category = dataCategory.data;
-    dispatch({ type: GET_CATEGORY, payload: category });
+    try {
+      const response = await fetch("http://localhost:3001/tallas");
+      if (!response.ok) {
+        throw new Error("Error al obtener las tallas");
+      }
+
+      const data = await response.json();
+
+      dispatch({ type: GET_TALLAS, payload: data });
+    } catch (error) {
+      console.error("Error en la acción getTallas:", error);
+    }
   };
 };
 
@@ -27,39 +45,26 @@ export const getProductById = (id) => {
   };
 };
 
-export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
-export const filterByCategoria = (payload) => {
-  return {
-    type: FILTER_BY_CATEGORY,
-    payload,
-  };
-};
+//////////////////////////////////////////////////////////////////////////////////
+export const RESET_FILTERS = "RESET_FILTERS";
+export const resetFilters = () => ({
+  type: RESET_FILTERS,
+});
 
-export const FILTER_BY_GENERO = "FILTER_BY_GENERO";
-export const filterByGenero = (payload) => {
-  return {
-    type: FILTER_BY_GENERO,
-    payload,
-  };
-};
+export const SET_GENERO_FILTER = "SET_GENERO_FILTER";
+export const setGeneroFilter = (genero) => ({
+  type: SET_GENERO_FILTER,
+  payload: genero,
+});
 
-export const FILTER_BY_ROPA = "FILTER_BY_ROPA";
-export const filterByRopa = (payload) => {
-  return {
-    type: FILTER_BY_ROPA,
-    payload,
-  };
-};
+export const SET_ROPA_FILTER = "SET_ROPA_FILTER";
+export const setRopaFilter = (ropa) => ({
+  type: SET_ROPA_FILTER,
+  payload: ropa,
+});
 
-export const FILTER_BY_TALLA = "FILTER_BY_TALLA";
-export const filterByTalla = (payload) => {
-  return {
-    type: FILTER_BY_TALLA,
-    payload,
-  };
-};
-
-// export const APPLY_FILTERS = "APPLY_FILTERS";
-// export const applyFilters = () => ({
-//   type: APPLY_FILTERS,
-// });
+export const SET_TALLA_FILTER = "SET_TALLA_FILTER";
+export const setTallaFilter = (talla) => ({
+  type: SET_TALLA_FILTER,
+  payload: talla,
+});

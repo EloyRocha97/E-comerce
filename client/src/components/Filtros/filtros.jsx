@@ -1,55 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Radio } from "@material-ui/core";
 import {
-  Box,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
   FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   FormLabel,
   RadioGroup,
-  Radio,
+  FormControlLabel,
+  Select,
+  MenuItem,
 } from "@material-ui/core";
-import { grey, pink } from "@material-ui/core/colors";
+import InputLabel from "@material-ui/core/InputLabel";
 import {
-  filterByGenero,
-  filterByTalla,
-  filterByRopa,
-  filterByCategoria,
+  setGeneroFilter,
+  setTallaFilter,
+  setRopaFilter,
+  resetFilters,
 } from "../../redux/actions";
-import { useDispatch } from "react-redux";
 import style from "./filtros.module.css";
 
 const Filtros = () => {
-  const [prendas, setPrenda] = useState("");
   const dispatch = useDispatch();
+  const filters = useSelector((state) => state.filters);
 
-  const handleChange = (event) => {
-    setPrenda(event.target.value);
+  const handleResetFilters = () => {
+    dispatch(resetFilters());
   };
 
-  function handleFilterCategoria(e) {
-    dispatch(filterByCategoria(e.target.value));
-  }
-  function handleFilterGenero(e) {
-    dispatch(filterByGenero(e.target.value));
-  }
+  const handleGeneroChange = (event) => {
+    dispatch(setGeneroFilter(event.target.value));
+  };
 
-  function handleFilterRopa(e) {
-    dispatch(filterByRopa(e.target.value));
-  }
+  const handleTallaChange = (event) => {
+    dispatch(setTallaFilter(event.target.value));
+  };
 
-  function handleFilterTalla(e) {
-    dispatch(filterByTalla(e.target.value));
-  }
+  const handleRopaChange = (event) => {
+    dispatch(setRopaFilter(event.target.value));
+  };
 
   return (
     <div className={style.filtrosWrapper}>
       {/* FILTRAR POR GENERO */}
       <div>
-        <FormControl onChange={(e) => handleFilterGenero(e)}>
+        <FormControl onChange={(e) => handleGeneroChange(e)}>
           <FormLabel id="demo-row-radio-buttons-group-labell">Genero</FormLabel>
           <RadioGroup
             row
@@ -74,9 +67,9 @@ const Filtros = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={prendas}
+            value={filters.ropa}
             label="Prendas"
-            onChange={(e) => handleFilterRopa(e)}
+            onChange={(e) => handleRopaChange(e)}
           >
             <MenuItem value="Buzo">Buzo</MenuItem>
             <MenuItem value="Campera">Campera</MenuItem>
@@ -91,7 +84,7 @@ const Filtros = () => {
 
       {/* FILTRAR POR Talla */}
       <div>
-        <FormControl onChange={(e) => handleFilterTalla(e)}>
+        <FormControl onChange={(e) => handleTallaChange(e)}>
           <FormLabel id="demo-radio-buttons-group-label">Talles</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
@@ -124,12 +117,12 @@ const Filtros = () => {
             <FormControlLabel value=" 40" control={<Radio />} label="40" />
             <FormControlLabel value=" 41" control={<Radio />} label="41" />
             <FormControlLabel value=" 42" control={<Radio />} label="42" />
-            {/* <FormLabel id="demo-radio-buttons-group-label">
-              Talles
-            </FormLabel>
-            <FormControlLabel value="todos" control={<Radio />} label="Todos" /> */}
           </RadioGroup>
         </FormControl>
+      </div>
+
+      <div>
+        <button onClick={handleResetFilters}>Restablecer Filtros</button>
       </div>
     </div>
   );
