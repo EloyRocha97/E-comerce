@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 
-export default function Paginate({ currentPage, allProducts, paginate }) {
-  const totalPages = Math.ceil(allProducts / 12);
+export default function Pagination({ currentPage, allProducts, paginate }) {
+  const totalPages = Math.ceil(allProducts / 20);
 
   let numbers = [];
   let startPage = 1;
@@ -22,28 +22,28 @@ export default function Paginate({ currentPage, allProducts, paginate }) {
     numbers.push(i);
   }
 
-  const handlerPaginater = (numero) => {
+  const handlePageChange = (numero) => {
     paginate(numero);
+    window.scrollTo(0, 0); // Desplazar al principio de la página
   };
 
   const handlerAdelante = () => {
     if (currentPage < totalPages) {
-      paginate(currentPage + 1);
+      handlePageChange(currentPage + 1);
     }
   };
 
   const handlerAtras = () => {
     if (currentPage > 1) {
-      paginate(currentPage - 1);
+      handlePageChange(currentPage - 1);
     }
   };
   const handlerFirst = () => {
-    paginate((currentPage = 1));
+    handlePageChange(1);
   };
 
   const handlerLast = () => {
-    console.log(totalPages);
-    paginate((currentPage = totalPages));
+    handlePageChange(totalPages);
   };
 
   return (
@@ -64,7 +64,7 @@ export default function Paginate({ currentPage, allProducts, paginate }) {
         return (
           <button
             className={currentPage !== numero ? styles.btn : styles.current}
-            onClick={() => handlerPaginater(numero)}
+            onClick={() => handlePageChange(numero)}
             key={numero}
           >
             {numero}

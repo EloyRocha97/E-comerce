@@ -1,6 +1,45 @@
-.GlamourGrove {
-  color: #b89b4c;
-  font-family: "Times New Roman", Times, serif;
-  font-size: medium;
-  margin-left: -12px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 98%;
+  padding: 10px;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.imgarma {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f50057;
+  min-width: 50%;
+  max-height: 350px;
+}
+
+.imggym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f50057;
+  min-width: 50%;
+  max-height: 350px;
+}
+
+.imgmoda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f50057;
+  min-width: 50%;
+  max-height: 350px;
 }

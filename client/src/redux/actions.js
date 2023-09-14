@@ -51,20 +51,25 @@ export const resetFilters = () => ({
   type: RESET_FILTERS,
 });
 
-export const SET_GENERO_FILTER = "SET_GENERO_FILTER";
-export const setGeneroFilter = (genero) => ({
-  type: SET_GENERO_FILTER,
-  payload: genero,
-});
+export const FILTER_BY_GENERO = "FILTER_BY_GENERO";
+export const filterByGenero = (payload) => {
+  return {
+    type: FILTER_BY_GENERO,
+    payload,
+  };
+};
 
-export const SET_ROPA_FILTER = "SET_ROPA_FILTER";
-export const setRopaFilter = (ropa) => ({
-  type: SET_ROPA_FILTER,
-  payload: ropa,
-});
-
-export const SET_TALLA_FILTER = "SET_TALLA_FILTER";
-export const setTallaFilter = (talla) => ({
-  type: SET_TALLA_FILTER,
-  payload: talla,
-});
+export const FILTER_BY_ROPA = "FILTER_BY_ROPA";
+export const filterByRopa = (payload) => {
+  return {
+    type: FILTER_BY_ROPA,
+    payload,
+  };
+};
+export const FILTER_BY_TALLA = "FILTER_BY_TALLA";
+export const filterByTalla = (payload) => {
+  return {
+    type: FILTER_BY_TALLA,
+    payload,
+  };
+};

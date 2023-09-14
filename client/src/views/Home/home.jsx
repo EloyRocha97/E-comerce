@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Carrusel from "../../components/Carrusel/carrusel";
 import Filtros from "../../components/Filtros/filtros";
 import CardContainer from "../../components/CardContainer/cardContainer";
 import Pagination from "../../components/Pagination/Pagination";
@@ -18,13 +17,12 @@ const Home = () => {
   }, [dispatch]);
 
   const currentProducts = allProducts.slice(
-    (currentPage - 1) * 12,
-    (currentPage - 1) * 12 + 12
+    (currentPage - 1) * 20,
+    (currentPage - 1) * 20 + 20
   );
 
   return (
     <div className={style.margin}>
-      <Carrusel />
       <div className={style.home}>
         <div className={style.filtrosWrapper}>
           <Filtros />

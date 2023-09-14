@@ -7,6 +7,11 @@
   width: 50px;
 }
 
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+
 .navBar {
   left: 0;
   position: fixed;

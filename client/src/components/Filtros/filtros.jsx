@@ -11,9 +11,9 @@ import {
 } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import {
-  setGeneroFilter,
-  setTallaFilter,
-  setRopaFilter,
+  filterByGenero,
+  filterByRopa,
+  filterByTalla,
   resetFilters,
 } from "../../redux/actions";
 import style from "./filtros.module.css";
@@ -27,36 +27,35 @@ const Filtros = () => {
   };
 
   const handleGeneroChange = (event) => {
-    dispatch(setGeneroFilter(event.target.value));
+    dispatch(filterByGenero(event.target.value));
   };
 
   const handleTallaChange = (event) => {
-    dispatch(setTallaFilter(event.target.value));
+    dispatch(filterByTalla(event.target.value));
   };
 
   const handleRopaChange = (event) => {
-    dispatch(setRopaFilter(event.target.value));
+    dispatch(filterByRopa(event.target.value));
   };
 
   return (
     <div className={style.filtrosWrapper}>
       {/* FILTRAR POR GENERO */}
-      <div>
-        <FormControl onChange={(e) => handleGeneroChange(e)}>
-          <FormLabel id="demo-row-radio-buttons-group-labell">Genero</FormLabel>
-          <RadioGroup
-            row
-            aria-labelledby="demo-row-radio-buttons-group-labell"
-            name="row-radio-buttons-groupp"
+
+      <div className={style.filtPrenda}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label1">Genero</InputLabel>
+          <Select
+            labelId="demo-simple-select-label1"
+            id="demo-simple-select1"
+            value="Que va?"
+            label="Genero"
+            onChange={(e) => handleGeneroChange(e)}
           >
-            <FormControlLabel
-              value="Hombre"
-              control={<Radio />}
-              label="Hombre"
-            />
-            <FormControlLabel value="Mujer" control={<Radio />} label="Mujer" />
-            <FormControlLabel value="Ambos" control={<Radio />} label="Ambos" />
-          </RadioGroup>
+            <MenuItem value="Hombre">Hombre</MenuItem>
+            <MenuItem value="Mujer">Mujer</MenuItem>
+            <MenuItem value="Ambos">Ambos</MenuItem>
+          </Select>
         </FormControl>
       </div>
 
@@ -67,7 +66,7 @@ const Filtros = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={filters.ropa}
+            value="Prendas"
             label="Prendas"
             onChange={(e) => handleRopaChange(e)}
           >

@@ -3,6 +3,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { SECRET_KEY } = process.env;
 
+const ROLES = {
+  ADMIN: "admin",
+  USER: "user",
+  SUPER_ADMIN: "superAdmin",
+};
+
 const signUp = async (req, res) => {
   try {
     const { nombre, email, contraseña, rol } = req.body;
@@ -62,8 +68,33 @@ const login = async (req, res) => {
   }
 };
 
-const protected = async (req, res) => {
-  res.json({ msg: "Llevas proteccion ;)" });
+// const protected = async (req, res) => {
+//   const user = req.user; // Asumiendo que has configurado un middleware para decodificar el token y almacenar el usuario en req.user
+
+//   // Verifica el rol del usuario
+//   if (user.rol === ROLES.ADMIN || user.rol === ROLES.SUPER_ADMIN) {
+//     res.json({ msg: "Llevas protección ;)" });
+//   } else {
+//     res
+//       .status(403)
+//       .json({ message: "No tienes permiso para acceder a esta función." });
+//   }
+// };
+
+const protected = (req, res) => {
+  const user = req.user;
+
+  if (
+    user &&
+    user.roles &&
+    (user.roles.includes("admin") || user.roles.includes("superAdmin"))
+  ) {
+    res.json({ msg: "Llevas protección ;)" });
+  } else {
+    res
+      .status(403)
+      .json({ message: "No tienes permiso para acceder a esta función." });
+  }
 };
 
 module.exports = {

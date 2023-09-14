@@ -1,6 +1,4 @@
 const { Sequelize } = require("sequelize");
-// const UserModel = require("./models/User");
-// const ProductModel = require("./models/Products");
 require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
@@ -41,14 +39,13 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 //relacionamos
 
-// UserModel(sequelize);
-// ProductModel(sequelize);
-
-const { User, Product, Category } = sequelize.models;
+const { User, Product, Category, Favorite } = sequelize.models;
 
 User.hasMany(Product);
 Product.belongsTo(User);
 Product.belongsToMany(Category, { through: "categoryProducts" });
 Category.belongsToMany(Product, { through: "categoryProducts" });
+Favorite.belongsTo(User, { foreignKey: "userId" });
+Favorite.belongsTo(Product, { foreignKey: "productId" });
 
 module.exports = { sequelize, ...sequelize.models };

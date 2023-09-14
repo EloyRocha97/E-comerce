@@ -1,12 +1,12 @@
 import Card from "../Card/card";
-import { useSelector } from "react-redux";
+import React, { forwardRef } from "react";
 import style from "./cardContainer.module.css";
+import { useSelector } from "react-redux";
 
-const CardContainer = ({ products }) => {
+const CardContainer = forwardRef(({ products }, ref) => {
   // const products = useSelector((state) => state.products);
-
   return (
-    <div className={style.container}>
+    <div className={style.container} ref={ref}>
       {products.map((product, index) => {
         return (
           <Card
@@ -21,6 +21,6 @@ const CardContainer = ({ products }) => {
       })}
     </div>
   );
-};
+});
 
 export default CardContainer;

@@ -1,9 +1,9 @@
 .container {
-  /* border: 1px solid black; */
+  min-height: 300px;
   display: flex;
   width: 1000px;
   height: 100%;
-  justify-content: center; /* Alinea las tarjetas horizontalmente en el centro */
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1em;

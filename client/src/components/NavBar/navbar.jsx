@@ -16,10 +16,24 @@ const Navbar = () => {
   return (
     <div className={style.navBar}>
       <div className={style.navLogo}>
-        <Link to="/">
-          <img src={Logo} alt="Logo de GlamourGrove" className={style.logo} />
+        <img src={Logo} alt="Logo de GlamourGrove" className={style.logo} />
+      </div>
+      <div className={style.options}>
+        <Link to="/" className={style.link}>
+          <h4>Inicio</h4>
         </Link>
       </div>
+      <div className={style.options}>
+        <Link to="/home" className={style.link}>
+          <h4>Tienda</h4>
+        </Link>
+      </div>
+      <div className={style.options}>
+        <Link to="/contacto" className={style.link}>
+          <h4>Contacto</h4>
+        </Link>
+      </div>
+
       <div className={style.navLogin}>
         {isAuthenticated ? <LogOutButton /> : <LoginButton />}
       </div>
