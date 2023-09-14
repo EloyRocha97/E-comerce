@@ -20,10 +20,10 @@ import style from "./filtros.module.css";
 
 const Filtros = () => {
   const dispatch = useDispatch();
-  const filters = useSelector((state) => state.filters);
 
   const handleResetFilters = () => {
     dispatch(resetFilters());
+    window.location.reload();
   };
 
   const handleGeneroChange = (event) => {
