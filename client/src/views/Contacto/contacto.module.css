@@ -1,0 +1,44 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacto {
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.medios {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.icons {
+  width: 20px;
+  padding: 5px;
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -25px;
+}
+
+.fakes {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.redesIcon {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20%;
+  gap: 15px;
+}
+
+.redesIconTam {
+  width: 30px;
+}

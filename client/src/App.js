@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/NavBar/navbar";
-import { Home, Detail, Landing } from "./views";
+import { Home, Detail, Landing, Contacto } from "./views";
 import { Routes, Route } from "react-router-dom";
 import "./app.css";
 
@@ -31,6 +31,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<PageWithNavbar element={Landing} />} />
+        <Route
+          path="/contacto"
+          element={<PageWithNavbar element={Contacto} />}
+        />
         <Route path="/home" element={<PageWithNavbar element={Home} />} />
         <Route path="/detail" element={<PageWithNavbar element={Detail} />} />
       </Routes>
