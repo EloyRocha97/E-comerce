@@ -37,21 +37,12 @@ const rootReducer = (state = initialState, action) => {
     case RESET_FILTERS:
       return {
         ...state,
-        filters: {
-          genero: "Ambos",
-          ropa: "Todo",
-          talla: "Todos",
-        },
+        products: state.allProducts,
       };
 
     case FILTER_BY_GENERO:
       const payload = action.payload;
-      const all =
-        state.filteredProductsXropa.length > 0
-          ? state.filteredProductsXropa
-          : state.filteredProductsXtalla.length > 0
-          ? state.filteredProductsXtalla
-          : state.allProducts;
+      const all = state.allProducts;
 
       let estadoGenero;
       if (payload === "Ambos") {
@@ -90,12 +81,23 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case FILTER_BY_TALLA:
-      const porTalla =
-        state.filteredProductsXgenero.length > 0
-          ? state.filteredProductsXgenero
-          : state.filteredProductsXropa.length > 0
-          ? state.filteredProductsXropa
-          : state.allProducts;
+      const filteredProductsXropa = state.filteredProductsXropa;
+      const filteredProductsXgenero = state.filteredProductsXgenero;
+      const allProducts = state.allProducts;
+
+      let porTalla;
+
+      if (
+        filteredProductsXropa.length > 0 &&
+        (filteredProductsXgenero.length === 0 ||
+          filteredProductsXropa.length < filteredProductsXgenero.length)
+      ) {
+        porTalla = filteredProductsXropa;
+      } else if (filteredProductsXgenero.length > 0) {
+        porTalla = filteredProductsXgenero;
+      } else {
+        porTalla = allProducts;
+      }
 
       let filterTalla = [];
 
