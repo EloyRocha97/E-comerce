@@ -16,7 +16,7 @@ const Contacto = () => {
       <div className={style.todo}>
         <div className={style.fakes}>
           <div className={style.medios}>
-            <h3>Llamanos al:</h3>
+            <h3>Hablanos por:</h3>
             <div className={style.info}>
               <img src={Telefono} alt="Mi tel" className={style.icons} />
               <h4> 151654654</h4>

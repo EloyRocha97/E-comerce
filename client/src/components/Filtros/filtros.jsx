@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Radio } from "@material-ui/core";
 import {
@@ -20,22 +20,35 @@ import style from "./filtros.module.css";
 
 const Filtros = () => {
   const dispatch = useDispatch();
+  const [genero, setGenero] = useState("");
+  const [ropa, setRopa] = useState("");
+  const [talla, setTalla] = useState("");
 
   const handleResetFilters = () => {
     dispatch(resetFilters());
-    window.location.reload();
+    setGenero("");
+    setRopa("");
+    setTalla("");
   };
 
   const handleGeneroChange = (event) => {
-    dispatch(filterByGenero(event.target.value));
-  };
-
-  const handleTallaChange = (event) => {
-    dispatch(filterByTalla(event.target.value));
+    const selectedGenero = event.target.value;
+    setGenero(selectedGenero);
+    setRopa("");
+    setTalla("");
+    dispatch(filterByGenero(selectedGenero));
   };
 
   const handleRopaChange = (event) => {
-    dispatch(filterByRopa(event.target.value));
+    const selectedRopa = event.target.value;
+    setRopa(selectedRopa);
+    dispatch(filterByRopa(selectedRopa));
+  };
+
+  const handleTallaChange = (event) => {
+    const selectedTalla = event.target.value;
+    setTalla(selectedTalla);
+    dispatch(filterByTalla(selectedTalla));
   };
 
   return (
@@ -48,7 +61,7 @@ const Filtros = () => {
           <Select
             labelId="demo-simple-select-label1"
             id="demo-simple-select1"
-            value="Que va?"
+            value={genero}
             label="Genero"
             onChange={(e) => handleGeneroChange(e)}
           >
@@ -66,7 +79,7 @@ const Filtros = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value="Prendas"
+            value={ropa}
             label="Prendas"
             onChange={(e) => handleRopaChange(e)}
           >
@@ -87,7 +100,7 @@ const Filtros = () => {
           <FormLabel id="demo-radio-buttons-group-label">Talles</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
+            value={talla}
             name="radio-buttons-group"
           >
             <FormControlLabel value="Todos" control={<Radio />} label="Todos" />
