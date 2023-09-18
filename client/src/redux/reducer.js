@@ -1,6 +1,7 @@
 import {
   GET_PRODUCTS,
   GET_PRODUCT_BY_ID,
+  CLEAR_STATE,
   RESET_FILTERS,
   FILTER_BY_GENERO,
   FILTER_BY_ROPA,
@@ -32,6 +33,12 @@ const rootReducer = (state = initialState, action) => {
         productById: action.payload,
       };
 
+    case CLEAR_STATE:
+      return {
+        ...state,
+        dogsById: {},
+      };
+
     ////////////////////////////////////////////////////////////////////////////
 
     case RESET_FILTERS:
@@ -59,10 +66,10 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_ROPA:
       const porRopa = action.payload;
       const allTodos =
-        state.filteredProductsXgenero.length > 0
-          ? state.filteredProductsXgenero
-          : state.filteredProductsXtalla.length > 0
+        state.filteredProductsXtalla.length > 0
           ? state.filteredProductsXtalla
+          : state.filteredProductsXgenero.length > 0
+          ? state.filteredProductsXgenero
           : state.allProducts;
 
       let estadoRopa;

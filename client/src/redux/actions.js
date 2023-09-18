@@ -39,12 +39,16 @@ export const getTallas = () => {
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const getProductById = (id) => {
   return async function (dispatch) {
-    const dataProduct = await axios.get(`http://localhost:3001/product${id}`);
+    const dataProduct = await axios.get(`http://localhost:3001/product/${id}`);
     const product = dataProduct.data;
     dispatch({ type: GET_PRODUCT_BY_ID, payload: product });
   };
 };
 
+export const CLEAR_STATE = "CLEAR_STATE";
+export const clearState = () => {
+  return { type: CLEAR_STATE };
+};
 //////////////////////////////////////////////////////////////////////////////////
 export const RESET_FILTERS = "RESET_FILTERS";
 export const resetFilters = () => ({

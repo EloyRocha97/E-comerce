@@ -36,7 +36,10 @@ function App() {
           element={<PageWithNavbar element={Contacto} />}
         />
         <Route path="/home" element={<PageWithNavbar element={Home} />} />
-        <Route path="/detail" element={<PageWithNavbar element={Detail} />} />
+        <Route
+          path="/product/:id"
+          element={<PageWithNavbar element={Detail} />}
+        />
       </Routes>
     </div>
   );
