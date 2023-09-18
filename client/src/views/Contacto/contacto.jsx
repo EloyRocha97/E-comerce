@@ -1,7 +1,10 @@
 import React from "react";
-import Telefono from "./telIcon.svg";
-import Direccion from "./direcIcon.svg";
-import Mail from "./mail.svg";
+import Telefono from "./svg/telIcon.svg";
+import Direccion from "./svg/direcIcon.svg";
+import Mail from "./svg/mail.svg";
+import Ig from "./svg/ig.svg";
+import Face from "./svg/face.svg";
+import Twitter from "./svg/twitter.svg";
 import style from "./contacto.module.css";
 
 const Contacto = () => {
@@ -44,11 +47,11 @@ const Contacto = () => {
           <h4>Tambien puedes seguirnos en:</h4>
         </div>
         <div className={style.redesIcon}>
-          <img src={Mail} alt="Mi mail" className={style.redesIconTam} />
+          <img src={Ig} alt="Mi ig" className={style.redesIconTam} />
 
-          <img src={Mail} alt="Mi mail" className={style.redesIconTam} />
+          <img src={Face} alt="Mi face" className={style.redesIconTam} />
 
-          <img src={Mail} alt="Mi mail" className={style.redesIconTam} />
+          <img src={Twitter} alt="Mi twitter" className={style.redesIconTam} />
         </div>
       </div>
     </div>
