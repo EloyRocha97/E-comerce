@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Radio } from "@material-ui/core";
 import {
@@ -20,13 +20,26 @@ import style from "./filtros.module.css";
 
 const Filtros = () => {
   const dispatch = useDispatch();
-  const genero1 = useSelector((state) => state.genero);
-  const ropa1 = useSelector((state) => state.ropa);
-  const talla1 = useSelector((state) => state.talla);
 
   const [genero, setGenero] = useState(localStorage.getItem("genero") || "");
   const [ropa, setRopa] = useState(localStorage.getItem("ropa") || "");
   const [talla, setTalla] = useState(localStorage.getItem("talla") || "");
+
+  const handleBeforeUnload = () => {
+    localStorage.removeItem("genero");
+    localStorage.removeItem("ropa");
+    localStorage.removeItem("talla");
+  };
+
+  useEffect(() => {
+    // Agregar un evento antes de que la página se recargue o cierre.
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Borrar todos los valores del almacenamiento local cuando el componente se desmonte.
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
 
   const handleResetFilters = () => {
     localStorage.removeItem("genero");

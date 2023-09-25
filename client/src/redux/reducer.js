@@ -14,9 +14,6 @@ const initialState = {
   allProducts: [],
   productById: [],
   categorys: [],
-  filteredProductsXgenero: [], // Variable para almacenar el resultado del filtro género
-  filteredProductsXropa: [], // Variable para almacenar el resultado del filtro género y tipo
-  filteredProductsXtalla: [], // Variable para almacenar el resultado del filtro ropa y talla
   genero: "",
   ropa: "",
   talla: "",
@@ -58,15 +55,15 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_BY_GENERO:
       const payload = action.payload;
-      // Restablecer el filtro de género en el estado
       return {
         ...state,
         genero: payload,
+        ropa: "",
+        talla: "",
       };
 
     case FILTER_BY_ROPA:
       const porRopa = action.payload;
-      // Restablecer el filtro de ropa en el estado
       return {
         ...state,
         ropa: porRopa,
@@ -74,7 +71,6 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_BY_TALLA:
       const porTalla = action.payload;
-      // Restablecer el filtro de talla en el estado
       return {
         ...state,
         talla: porTalla,
