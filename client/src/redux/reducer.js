@@ -17,6 +17,9 @@ const initialState = {
   filteredProductsXgenero: [], // Variable para almacenar el resultado del filtro género
   filteredProductsXropa: [], // Variable para almacenar el resultado del filtro género y tipo
   filteredProductsXtalla: [], // Variable para almacenar el resultado del filtro ropa y talla
+  genero: "",
+  ropa: "",
+  talla: "",
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -42,86 +45,39 @@ const rootReducer = (state = initialState, action) => {
     ////////////////////////////////////////////////////////////////////////////
 
     case RESET_FILTERS:
+      localStorage.removeItem("genero");
+      localStorage.removeItem("ropa");
+      localStorage.removeItem("talla");
       return {
         ...state,
         products: state.allProducts,
+        genero: "",
+        ropa: "",
+        talla: "",
       };
 
     case FILTER_BY_GENERO:
       const payload = action.payload;
-      const all = state.allProducts;
-
-      let estadoGenero;
-      if (payload === "Ambos") {
-        estadoGenero = all;
-      } else {
-        estadoGenero = all.filter((el) => el.genero === payload);
-      }
-      state.filteredProductsXgenero = estadoGenero;
+      // Restablecer el filtro de género en el estado
       return {
         ...state,
-        products: estadoGenero,
+        genero: payload,
       };
 
     case FILTER_BY_ROPA:
       const porRopa = action.payload;
-      const allTodos =
-        state.filteredProductsXtalla.length > 0
-          ? state.filteredProductsXtalla
-          : state.filteredProductsXgenero.length > 0
-          ? state.filteredProductsXgenero
-          : state.allProducts;
-
-      let estadoRopa;
-      if (porRopa !== "Todo") {
-        estadoRopa = allTodos.filter((el) => el.tipo === porRopa);
-      } else if (porRopa === "Todo") {
-        estadoRopa = allTodos;
-      } else {
-        estadoRopa = allTodos;
-      }
-      state.filteredProductsXropa = estadoRopa;
-
+      // Restablecer el filtro de ropa en el estado
       return {
         ...state,
-        products: estadoRopa,
+        ropa: porRopa,
       };
 
     case FILTER_BY_TALLA:
-      const filteredProductsXropa = state.filteredProductsXropa;
-      const filteredProductsXgenero = state.filteredProductsXgenero;
-      const allProducts = state.allProducts;
-
-      let porTalla;
-
-      if (
-        filteredProductsXropa.length > 0 &&
-        (filteredProductsXgenero.length === 0 ||
-          filteredProductsXropa.length < filteredProductsXgenero.length)
-      ) {
-        porTalla = filteredProductsXropa;
-      } else if (filteredProductsXgenero.length > 0) {
-        porTalla = filteredProductsXgenero;
-      } else {
-        porTalla = allProducts;
-      }
-
-      let filterTalla = [];
-
-      if (!action.payload || action.payload === "Todos") {
-        filterTalla = porTalla;
-      } else {
-        for (let i = 0; i < porTalla.length; i++) {
-          let found = porTalla[i].talla.find((t) => t === action.payload);
-          if (found) {
-            filterTalla.push(porTalla[i]);
-          }
-        }
-      }
-      state.filteredProductsXtalla = filterTalla;
+      const porTalla = action.payload;
+      // Restablecer el filtro de talla en el estado
       return {
         ...state,
-        products: filterTalla,
+        talla: porTalla,
       };
 
     default:

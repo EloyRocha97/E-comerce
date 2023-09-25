@@ -20,11 +20,18 @@ import style from "./filtros.module.css";
 
 const Filtros = () => {
   const dispatch = useDispatch();
-  const [genero, setGenero] = useState("");
-  const [ropa, setRopa] = useState("");
-  const [talla, setTalla] = useState("");
+  const genero1 = useSelector((state) => state.genero);
+  const ropa1 = useSelector((state) => state.ropa);
+  const talla1 = useSelector((state) => state.talla);
+
+  const [genero, setGenero] = useState(localStorage.getItem("genero") || "");
+  const [ropa, setRopa] = useState(localStorage.getItem("ropa") || "");
+  const [talla, setTalla] = useState(localStorage.getItem("talla") || "");
 
   const handleResetFilters = () => {
+    localStorage.removeItem("genero");
+    localStorage.removeItem("ropa");
+    localStorage.removeItem("talla");
     dispatch(resetFilters());
     setGenero("");
     setRopa("");
@@ -42,17 +49,22 @@ const Filtros = () => {
   const handleRopaChange = (event) => {
     const selectedRopa = event.target.value;
     setRopa(selectedRopa);
+    localStorage.setItem("ropa", selectedRopa);
     dispatch(filterByRopa(selectedRopa));
   };
 
   const handleTallaChange = (event) => {
     const selectedTalla = event.target.value;
     setTalla(selectedTalla);
+    localStorage.setItem("talla", selectedTalla);
     dispatch(filterByTalla(selectedTalla));
   };
 
   return (
     <div className={style.filtrosWrapper}>
+      <div className={style.reset}>
+        <button onClick={handleResetFilters}>Restablecer Filtros</button>
+      </div>
       {/* FILTRAR POR GENERO */}
 
       <div className={style.filtPrenda}>
@@ -131,10 +143,6 @@ const Filtros = () => {
             <FormControlLabel value=" 42" control={<Radio />} label="42" />
           </RadioGroup>
         </FormControl>
-      </div>
-
-      <div>
-        <button onClick={handleResetFilters}>Restablecer Filtros</button>
       </div>
     </div>
   );

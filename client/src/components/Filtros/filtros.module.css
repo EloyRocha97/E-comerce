@@ -3,6 +3,10 @@
   margin-top: 50px;
 }
 
+.reset {
+  margin-bottom: 10px;
+}
+
 .filtPrenda {
   margin-bottom: 20px; /* Agrega espacio abajo del primer filtro */
 }
