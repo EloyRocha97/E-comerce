@@ -1,8 +1,5 @@
 .margin {
   margin-top: 100px;
-}
-
-.pagination {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +10,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
-  gap: 100px;
+  width: 98%;
+  /* gap: 100px; */
 }
 
-.filtrosWrapper {
+/* .filtrosWrapper {
   min-width: 80px;
   max-width: 80px;
   margin-left: 20px;
@@ -27,4 +24,4 @@
 .cardContainer {
   width: 100%;
   margin-right: 100px;
-}
+} */

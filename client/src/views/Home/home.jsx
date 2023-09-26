@@ -3,13 +3,7 @@ import Filtros from "../../components/Filtros/filtros";
 import CardContainer from "../../components/CardContainer/cardContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProducts,
-  filterByGenero,
-  filterByRopa,
-  filterByTalla,
-  resetFilters,
-} from "../../redux/actions";
+import { getProducts } from "../../redux/actions";
 import style from "./home.module.css";
 
 const Home = () => {
@@ -48,14 +42,10 @@ const Home = () => {
   return (
     <div className={style.margin}>
       <div className={style.home}>
-        <div className={style.filtrosWrapper}>
-          <Filtros />
-        </div>
-        <div className={style.cardContainer}>
-          <CardContainer products={currentProducts} />
-        </div>
+        <Filtros />
+        <CardContainer products={currentProducts} />
       </div>
-      <div className={style.pagination}>
+      <div>
         <Pagination
           currentPage={currentPage}
           allProducts={filteredProducts.length}

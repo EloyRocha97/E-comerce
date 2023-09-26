@@ -8,6 +8,8 @@ import {
   FormControlLabel,
   Select,
   MenuItem,
+  Box,
+  Button,
 } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import {
@@ -74,13 +76,13 @@ const Filtros = () => {
   };
 
   return (
-    <div className={style.filtrosWrapper}>
-      <div className={style.reset}>
-        <button onClick={handleResetFilters}>Restablecer Filtros</button>
-      </div>
+    <Box className={style.filtrosWrapper}>
+      <Box className={style.reset}>
+        <Button onClick={handleResetFilters}>Restablecer Filtros</Button>
+      </Box>
       {/* FILTRAR POR GENERO */}
 
-      <div className={style.filtPrenda}>
+      <Box className={style.filtPrenda}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label1">Genero</InputLabel>
           <Select
@@ -95,10 +97,10 @@ const Filtros = () => {
             <MenuItem value="Ambos">Ambos</MenuItem>
           </Select>
         </FormControl>
-      </div>
+      </Box>
 
       {/* FILTRAR POR PRENDA */}
-      <div className={style.filtPrenda}>
+      <Box className={style.filtPrenda}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Prendas</InputLabel>
           <Select
@@ -117,10 +119,10 @@ const Filtros = () => {
             <MenuItem value="Todo">Todo</MenuItem>
           </Select>
         </FormControl>
-      </div>
+      </Box>
 
       {/* FILTRAR POR Talla */}
-      <div>
+      <Box>
         <FormControl onChange={(e) => handleTallaChange(e)}>
           <FormLabel id="demo-radio-buttons-group-label">Talles</FormLabel>
           <RadioGroup
@@ -156,8 +158,8 @@ const Filtros = () => {
             <FormControlLabel value=" 42" control={<Radio />} label="42" />
           </RadioGroup>
         </FormControl>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,3 +1,10 @@
+.filtrosWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+}
+
 .filtros {
   position: fixed;
   margin-top: 50px;
@@ -8,11 +15,11 @@
 }
 
 .filtPrenda {
-  margin-bottom: 20px; /* Agrega espacio abajo del primer filtro */
+  margin-bottom: 20px;
 }
 
 .filtGen {
-  margin-top: 20px; /* Agrega espacio arriba del segundo filtro */
+  margin-top: 20px;
 }
 
 .colorTalle {
