@@ -2,10 +2,9 @@
 .mainContainer {
   border: 1px solid #f50057;
   background-color: rgb(180, 162, 162);
-  width: 32%;
+  width: 25%;
   height: 100%;
   margin: 0 auto;
-  /* margin-left: 20%; */
   margin-bottom: 80px;
   margin-top: 80px;
 }
@@ -17,13 +16,10 @@
 }
 
 .nameImage {
-  width: 1000px;
   height: 100%;
 }
 
 .containerImages {
-  /* width: 100%;
-  height: 100%; */
   display: flex;
   overflow: hidden; /* Agrega overflow: hidden para recortar las imágenes */
   transition: transform 5s ease-in-out; /* Agrega una transición suave */
@@ -39,7 +35,7 @@
 }
 
 .containerImages ul li {
-  flex: 0 0 600px;
+  flex: 0 0 100%; /* Utiliza 100% para que las imágenes ocupen el ancho completo del contenedor */
 }
 
 /* Arrows */

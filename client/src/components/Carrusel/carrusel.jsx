@@ -5,14 +5,12 @@ import style from "./carrusel.module.css";
 const Carrusel = () => {
   const listImg = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const imageWidth = listImg.current
-    ? listImg.current.offsetWidth / data.length
-    : 0;
+  const imageWidth = 1000;
 
   useEffect(() => {
-    const newPosition = -currentIndex * imageWidth;
-    listImg.current.style.transform = `translateX(${newPosition}px)`;
-  }, [currentIndex, imageWidth]);
+    const newPosition = -currentIndex * 100;
+    listImg.current.style.transform = `translateX(${newPosition}%)`;
+  }, [currentIndex]);
 
   const scrollToImage = (direction) => {
     const maxIndex = data.length - 1;
@@ -38,10 +36,10 @@ const Carrusel = () => {
           &#8250;
         </div>
         <div className={style.containerImages}>
-          <ul ref={listImg} style={{ width: `${data.length * 100}%` }}>
+          <ul ref={listImg}>
             {data.map((image) => {
               return (
-                <li key={image.id} style={{ width: `${100 / data.length}%` }}>
+                <li key={image.id}>
                   <img src={image.imgUrl} className={style.nameImage} />
                 </li>
               );

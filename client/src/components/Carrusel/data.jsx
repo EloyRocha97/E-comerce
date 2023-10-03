@@ -1,6 +1,6 @@
-import imagen1 from "./ImgCarrusel/C1.jpg";
-import imagen2 from "./ImgCarrusel/C2.jpg";
-import imagen3 from "./ImgCarrusel/C3.jpg";
+import imagen1 from "./ImgCarrusel/Del niño.png";
+import imagen2 from "./ImgCarrusel/MujModa.png";
+import imagen3 from "./ImgCarrusel/RugModa.png";
 import imagen4 from "./ImgCarrusel/C4.webp";
 import imagen5 from "./ImgCarrusel/C5.webp";
 
