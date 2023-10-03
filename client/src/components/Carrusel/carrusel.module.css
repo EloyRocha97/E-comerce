@@ -1,14 +1,15 @@
 /* Main container */
-
 .mainContainer {
   border: 1px solid #f50057;
-  width: 1000px;
-  height: 450px;
+  background-color: rgb(180, 162, 162);
+  width: 32%;
+  height: 100%;
   margin: 0 auto;
   /* margin-left: 20%; */
   margin-bottom: 80px;
   margin-top: 80px;
 }
+
 /* Slider container */
 .sliderContainer {
   position: relative;
@@ -17,7 +18,7 @@
 
 .nameImage {
   width: 1000px;
-  height: 450px;
+  height: 100%;
 }
 
 .containerImages {
@@ -68,6 +69,8 @@
 
 /* dots carrusel */
 .dotsContainer {
+  background-color: rgb(180, 162, 162);
+
   margin-top: 5px;
   display: flex;
   justify-content: center;
@@ -77,8 +80,6 @@
 }
 
 .dotContainerItem {
-  /* margin: 12px 5px; */
-
   cursor: pointer;
   font-size: 10px;
   text-align: center;
@@ -90,6 +91,7 @@ div.active {
   width: 10px;
   height: 10px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 div.disable {
@@ -98,4 +100,5 @@ div.disable {
   width: 10px;
   height: 10px;
   cursor: pointer;
+  margin-bottom: 5px;
 }

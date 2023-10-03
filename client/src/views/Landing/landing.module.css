@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
   padding-bottom: 50px;
 }
 
@@ -17,29 +16,15 @@
   margin-top: 20px;
 }
 
-.imgarma {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #f50057;
-  min-width: 50%;
-  max-height: 350px;
-}
-
-.imggym {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #f50057;
-  min-width: 50%;
-  max-height: 350px;
-}
-
+.imgarma,
+.imggym,
 .imgmoda {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid #f50057;
-  min-width: 50%;
-  max-height: 350px;
+  max-width: 100%; /* Ajustar el ancho máximo al 100% del contenedor padre */
+  height: auto; /* Mantener la relación de aspecto de la imagen */
+  object-fit: cover; /* Cubrir el área asignada sin distorsionar la relación de aspecto */
+  max-height: 350px; /* Establecer una altura máxima si es necesario */
 }

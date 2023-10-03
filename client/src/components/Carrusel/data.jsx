@@ -17,12 +17,12 @@ export const data = [
     id: 3,
     imgUrl: imagen3,
   },
-  {
-    id: 4,
-    imgUrl: imagen4,
-  },
-  {
-    id: 5,
-    imgUrl: imagen5,
-  },
+  // {
+  //   id: 4,
+  //   imgUrl: imagen4,
+  // },
+  // {
+  //   id: 5,
+  //   imgUrl: imagen5,
+  // },
 ];

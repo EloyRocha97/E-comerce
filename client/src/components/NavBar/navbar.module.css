@@ -11,6 +11,9 @@
   text-decoration: none;
   color: #000000;
 }
+.options {
+  width: 30%;
+}
 
 .navBar {
   left: 0;
@@ -34,4 +37,49 @@
   width: 100%;
   /* animation: move linear 2000ms infinite; */
   z-index: 2;
+}
+
+@media screen and (max-width: 420px) {
+  .logo {
+    width: 30px;
+    padding-left: 20px;
+  }
+  .navLogin {
+    padding-right: 20px;
+    width: 50px;
+  }
+
+  .link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 8px;
+  }
+
+  .options {
+    width: 30%;
+  }
+
+  .navBar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(
+      135deg,
+      rgb(227, 227, 227) 0%,
+      rgb(93, 104, 116) 100%
+    );
+    color: #ffffff;
+    font: normal 11px Varela Round, sans-serif;
+    height: 50px;
+    letter-spacing: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    /* animation: move linear 2000ms infinite; */
+    z-index: 2;
+  }
 }

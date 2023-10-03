@@ -15,22 +15,22 @@ const Navbar = () => {
 
   return (
     <div className={style.navBar}>
-      <div className={style.navLogo}>
+      <div>
         <img src={Logo} alt="Logo de GlamourGrove" className={style.logo} />
       </div>
       <div className={style.options}>
         <Link to="/" className={style.link}>
-          <h4>Inicio</h4>
+          Inicio
         </Link>
       </div>
       <div className={style.options}>
         <Link to="/home" className={style.link}>
-          <h4>Tienda</h4>
+          Tienda
         </Link>
       </div>
       <div className={style.options}>
         <Link to="/contacto" className={style.link}>
-          <h4>Contacto</h4>
+          Contact
         </Link>
       </div>
 

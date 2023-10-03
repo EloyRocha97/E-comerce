@@ -3,10 +3,18 @@
 }
 .icon {
   width: 45px;
-  height: 35px;
 }
 
 .icon1 {
   width: 33px;
-  height: 28px;
+}
+
+@media screen and (max-width: 420px) {
+  .icon {
+    width: 25px;
+  }
+
+  .icon1 {
+    width: 13px;
+  }
 }

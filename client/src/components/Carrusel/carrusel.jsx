@@ -5,7 +5,9 @@ import style from "./carrusel.module.css";
 const Carrusel = () => {
   const listImg = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const imageWidth = 1000;
+  const imageWidth = listImg.current
+    ? listImg.current.offsetWidth / data.length
+    : 0;
 
   useEffect(() => {
     const newPosition = -currentIndex * imageWidth;
@@ -36,10 +38,10 @@ const Carrusel = () => {
           &#8250;
         </div>
         <div className={style.containerImages}>
-          <ul ref={listImg}>
+          <ul ref={listImg} style={{ width: `${data.length * 100}%` }}>
             {data.map((image) => {
               return (
-                <li key={image.id}>
+                <li key={image.id} style={{ width: `${100 / data.length}%` }}>
                   <img src={image.imgUrl} className={style.nameImage} />
                 </li>
               );
