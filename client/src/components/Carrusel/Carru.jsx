@@ -1,95 +1,36 @@
-import React, { useState } from "react";
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-} from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import style from "./carrusel.module.css";
+import React, { useState, useEffect } from "react";
+import "./carrusel.css";
 
-const items = [
-  {
-    src: require("./ImgCarrusel/C1.jpg"),
-  },
-  {
-    src: require("./ImgCarrusel/C2.jpg"),
-  },
-  {
-    src: require("./ImgCarrusel/C3.jpg"),
-  },
-  {
-    src: require("./ImgCarrusel/C4.webp"),
-  },
-  {
-    src: require("./ImgCarrusel/C5.webp"),
-  },
+const images = [
+  "https://media.istockphoto.com/id/941377004/es/foto/cliente-mujer-morena-selecci%C3%B3n-de-prendas-b%C3%A1sicas-en-la-tienda.jpg?s=612x612&w=0&k=20&c=CqqQbDHw2Ygu2wiQez8TfBIb5G1xnr20qlzMSFowSx0=",
+  "https://as01.epimg.net/deporteyvida/imagenes/2019/11/03/portada/1572798603_458091_1572798763_noticia_normal_recorte1.jpg",
+  "https://media.istockphoto.com/id/1143300560/es/foto/la-gente-joven-comprando-ropa.jpg?s=612x612&w=0&k=20&c=ZnFr4T0RKBdJK_T-GKNGm1A54GbXjQo3LjmTmtS-PUQ=",
 ];
-
 const Carrusel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
-  const onExiting = () => {
-    setAnimating(true);
+  const nextSlide = () => {
+    setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const onExited = () => {
-    setAnimating(false);
+  const prevSlide = () => {
+    setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
-
-  const slides = items.map((item) => (
-    <CarouselItem onExiting={onExiting} onExited={onExited} key={item.src}>
-      <img src={item.src} alt={item.altText} className={style.img} />
-      <CarouselCaption
-        captionText={item.caption}
-        captionHeader={item.caption}
-      />
-    </CarouselItem>
-  ));
+  // Cambiar automáticamente la imagen cada 3 segundos (3000 milisegundos)
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-      className={style.container}
-    >
-      <CarouselIndicators
-        items={items}
-        activeIndex={activeIndex}
-        onClickHandler={goToIndex}
+    <div className="slider-container">
+      <img
+        className="slider-image"
+        src={images[currentImage]}
+        alt={`Slide ${currentImage}`}
       />
-      {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-      />
-    </Carousel>
+    </div>
   );
 };
 

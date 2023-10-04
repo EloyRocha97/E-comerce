@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Carrusel from "../../components/Carrusel/carrusel";
+import Carrusel from "../../components/Carrusel/Carru";
 import { arma1, arma2, gym1, gym2, moda1, moda2 } from "./imgLanding";
 
 import style from "./landing.module.css";
