@@ -33,9 +33,8 @@ const Contacto = () => {
             </div>
           </div>
           <iframe
+            className={style.map}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.1525108580076!2d-64.19770392522933!3d-31.409923895937386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432987e02816255%3A0xa0c1cdfad69163b7!2zTWNEb25hbGQncyDigKIgUGxhemEgQ29sw7Nu!5e0!3m2!1ses-419!2sar!4v1694731416217!5m2!1ses-419!2sar"
-            width="600"
-            height="250"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"

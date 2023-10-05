@@ -10,10 +10,10 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 98%;
+  width: 50%;
   padding: 10px;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 2em; /* Utilizando unidades de medida relativas */
 }
 
 .imgarma,
@@ -23,8 +23,43 @@
   justify-content: center;
   align-items: center;
   border: 1px solid #f50057;
-  max-width: 100%; /* Ajustar el ancho máximo al 100% del contenedor padre */
-  height: auto; /* Mantener la relación de aspecto de la imagen */
-  object-fit: cover; /* Cubrir el área asignada sin distorsionar la relación de aspecto */
-  max-height: 350px; /* Establecer una altura máxima si es necesario */
+  width: 100%; /* Ocupa el 100% del contenedor padre */
+  max-width: 100%; /* Ancho máximo para evitar que las imágenes sean más grandes que el contenedor */
+  height: auto;
+  object-fit: cover;
+  max-height: 350px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 50px;
+  }
+
+  .block {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40%;
+    padding: 10px;
+    gap: 10px;
+    margin-top: 2em; /* Utilizando unidades de medida relativas */
+  }
+
+  .imgarma,
+  .imggym,
+  .imgmoda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f50057;
+    width: 100%; /* Ocupa el 100% del contenedor padre */
+    max-width: 100%; /* Ancho máximo para evitar que las imágenes sean más grandes que el contenedor */
+    height: auto;
+    object-fit: cover;
+    max-height: 350px;
+  }
 }

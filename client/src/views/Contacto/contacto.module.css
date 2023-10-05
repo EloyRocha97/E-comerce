@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+.map {
+  width: 600px;
+  height: 250px;
+}
+
 .contacto {
   font-size: 30px;
   font-family: "Times New Roman", Times, serif;
@@ -42,4 +47,51 @@
 .redesIconTam {
   width: 30px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .map {
+    width: 400px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .map {
+    width: 300px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .map {
+    width: 300px;
+    height: 150px;
+  }
+
+  .fakes {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .contacto {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .map {
+    width: 250px;
+    height: 150px;
+  }
+
+  .fakes {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-direction: column;
+  }
 }

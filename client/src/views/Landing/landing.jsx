@@ -10,16 +10,16 @@ const Landing = () => {
     <div className={style.container}>
       <Carrusel />
       <div className={style.block}>
-        <img src={arma1} className={style.imgarma} />
-        <img src={arma2} className={style.imgarma} />
+        <img src={arma1} className={style.imgarma} alt="Arma 1" />
+        <img src={arma2} className={style.imgarma} alt="Arma 2" />
       </div>
       <div className={style.block}>
-        <img src={gym1} className={style.imggym} />
-        <img src={gym2} className={style.imggym} />
+        <img src={gym1} className={style.imggym} alt="Gym 1" />
+        <img src={gym2} className={style.imggym} alt="Gym 2" />
       </div>
       <div className={style.block}>
-        <img src={moda1} className={style.imgmoda} />
-        <img src={moda2} className={style.imgmoda} />
+        <img src={moda1} className={style.imgmoda} alt="Moda 1" />
+        <img src={moda2} className={style.imgmoda} alt="Moda 2" />
       </div>
     </div>
   );
