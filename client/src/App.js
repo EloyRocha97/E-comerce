@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import Navbar from "./components/NavBar/navbar";
 import { Home, Detail, Landing, Contacto } from "./views";
 import { Routes, Route } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 import "./app.css";
-// axios.defaults.baseURL = "https://recipes-api-julianllop-back.onrender.com";
+axios.defaults.baseURL = "https://e-comerse-back.onrender.com";
 
 // Componente contenedor para las páginas que necesitan el Navbar
 const PageWithNavbar = ({ element: PageComponent }) => (

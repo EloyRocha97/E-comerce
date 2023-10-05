@@ -12,7 +12,7 @@ import axios from "axios";
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const getProducts = () => {
   return async function (dispatch) {
-    const dataProduct = await axios.get("http://localhost:3001/product");
+    const dataProduct = await axios.get("/product");
     const product = dataProduct.data;
     dispatch({ type: GET_PRODUCTS, payload: product });
   };
@@ -22,7 +22,7 @@ export const GET_TALLAS = "GET_TALLAS";
 export const getTallas = () => {
   return async function (dispatch) {
     try {
-      const response = await fetch("http://localhost:3001/tallas");
+      const response = await fetch("/tallas");
       if (!response.ok) {
         throw new Error("Error al obtener las tallas");
       }
@@ -39,7 +39,7 @@ export const getTallas = () => {
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const getProductById = (id) => {
   return async function (dispatch) {
-    const dataProduct = await axios.get(`http://localhost:3001/product/${id}`);
+    const dataProduct = await axios.get(`/product/${id}`);
     const product = dataProduct.data;
     dispatch({ type: GET_PRODUCT_BY_ID, payload: product });
   };
