@@ -5,7 +5,10 @@ const path = require("path");
 
 const { DB_USER, DB_PASSWPRD, DB_HOST, DB_RENDER } = process.env;
 
-const sequelize = new Sequelize(DB_RENDER, { logging: false, native: false });
+const sequelize = new Sequelize(
+  "postgres://e_comerce_user:pp4v7ahA69ObwLFBj2sWQDUbbWWa94So@dpg-ckfgp1ns0fgc73cgji8g-a/e_comerce",
+  { logging: false, native: false }
+);
 
 //**
 const basename = path.basename(__filename);
