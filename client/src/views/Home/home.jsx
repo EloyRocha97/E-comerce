@@ -26,6 +26,10 @@ const Home = () => {
       });
   }, [dispatch]);
 
+  if (loading) {
+    return <LoadingCards />;
+  }
+
   const filteredProducts = allProducts.filter((product) => {
     if (genero && genero !== "Ambos" && product.genero !== genero) {
       return false;
@@ -49,19 +53,23 @@ const Home = () => {
   return (
     <div className={style.margin}>
       <div className={style.home}>
-        <Filtros />
         {loading ? (
           <LoadingCards />
         ) : (
-          <cardsContainer products={currentProducts} />
+          <React.Fragment>
+            <Filtros />
+            <CardContainer products={currentProducts} />
+          </React.Fragment>
         )}
       </div>
       <div>
-        <Pagination
-          currentPage={currentPage}
-          allProducts={filteredProducts.length}
-          paginate={setCurrentPage}
-        />
+        {!loading && (
+          <Pagination
+            currentPage={currentPage}
+            allProducts={filteredProducts.length}
+            paginate={setCurrentPage}
+          />
+        )}
       </div>
     </div>
   );
