@@ -4,6 +4,7 @@ import CardContainer from "../../components/CardContainer/cardContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions";
+import LoadingCards from "../../components/CardContainer/loadingCards";
 import style from "./home.module.css";
 
 const Home = () => {
