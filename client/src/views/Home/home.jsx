@@ -14,9 +14,15 @@ const Home = () => {
   const talla = useSelector((state) => state.talla);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProducts())
+      .then(() => setLoading(false)) // Cuando la función getProducts() se resuelve, se establece el estado de carga en falso
+      .catch((error) => {
+        console.error(error);
+        setLoading(false); // En caso de error, también se establece el estado de carga en falso
+      });
   }, [dispatch]);
 
   const filteredProducts = allProducts.filter((product) => {
@@ -43,7 +49,11 @@ const Home = () => {
     <div className={style.margin}>
       <div className={style.home}>
         <Filtros />
-        <CardContainer products={currentProducts} />
+        {loading ? (
+          <LoadingCards />
+        ) : (
+          <cardsContainer products={currentProducts} />
+        )}
       </div>
       <div>
         <Pagination
