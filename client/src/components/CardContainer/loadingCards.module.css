@@ -1,0 +1,15 @@
+.container {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.image {
+  width: 270px;
+  height: 270px;
+  aspect-ratio: 2/3;
+  background-color: white;
+}
