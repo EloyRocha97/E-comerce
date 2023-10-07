@@ -1,3 +1,10 @@
+.loadingContainer {
+  width: 270px;
+  height: 270px;
+  aspect-ratio: 2/3;
+  background-color: white;
+}
+
 .container {
   display: flex;
   justify-content: center;
