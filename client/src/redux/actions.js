@@ -1,14 +1,5 @@
 import axios from "axios";
 
-// export const GET_CATEGORY = "GET_CATEGORY";
-// export const getCategory = () => {
-//   return async function (dispatch) {
-//     const dataCategory = await axios.get("http://localhost:3001/category");
-//     const category = dataCategory.data;
-//     dispatch({ type: GET_CATEGORY, payload: category });
-//   };
-// };
-
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const getProducts = () => {
   return async function (dispatch) {
@@ -35,6 +26,20 @@ export const getTallas = () => {
     }
   };
 };
+
+export const CREATE_PRODUCTS = "CREATE_PRODUCTS";
+export function createRecipe(payload) {
+  const request = {
+    url: "/product/create",
+    method: "POST",
+    data: payload,
+  };
+  return async (dispatch) => {
+    return axios(request).then((response) => {
+      dispatch({ type: CREATE_PRODUCTS, payload: response.data.results });
+    });
+  };
+}
 
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const getProductById = (id) => {
