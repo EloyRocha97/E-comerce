@@ -28,15 +28,27 @@ export const getTallas = () => {
 };
 
 export const CREATE_PRODUCTS = "CREATE_PRODUCTS";
-export function createRecipe(payload) {
+export function createProduct(payload) {
   const request = {
-    url: "/product/create",
+    url: "/product",
     method: "POST",
     data: payload,
   };
   return async (dispatch) => {
     return axios(request).then((response) => {
-      dispatch({ type: CREATE_PRODUCTS, payload: response.data.results });
+      dispatch({ type: CREATE_PRODUCTS, payload: response.data });
+    });
+  };
+}
+
+export const GET_CATEGORY = "GET_CATEGORY";
+export function getCategorys() {
+  return async function (dispatch) {
+    var json = await axios.get("/category");
+    var listOfCategorys = json.data.map((el) => el.nombre);
+    return dispatch({
+      type: "GET_CATEGORY",
+      payload: listOfCategorys,
     });
   };
 }

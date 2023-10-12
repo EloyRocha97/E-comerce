@@ -1,6 +1,7 @@
 import {
   GET_PRODUCTS,
   CREATE_PRODUCTS,
+  GET_CATEGORY,
   GET_PRODUCT_BY_ID,
   CLEAR_STATE,
   RESET_FILTERS,
@@ -34,10 +35,17 @@ const rootReducer = (state = initialState, action) => {
         productById: action.payload,
       };
 
+    case GET_CATEGORY:
+      return {
+        ...state,
+        categorys: action.payload,
+        allCategorys: action.payload,
+      };
+
     case CREATE_PRODUCTS:
       return {
         ...state,
-        createVideogame: action.payload,
+        createProduct: action.payload,
       };
 
     case CLEAR_STATE:

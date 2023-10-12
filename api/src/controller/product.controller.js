@@ -1,4 +1,4 @@
-const { Product, Category, Favorite } = require("../db");
+const { Product, Favorite } = require("../db");
 
 const createProduct = async (
   nombre,
@@ -8,7 +8,7 @@ const createProduct = async (
   tipo,
   talla,
   genero,
-  categoryId
+  categoria // Cambié el nombre de 'category' a 'categoria'
 ) => {
   if (!nombre || typeof nombre !== "string") {
     throw new Error("El nombre del producto es incorrecto");
@@ -32,13 +32,7 @@ const createProduct = async (
     throw new Error("Debe proporcionar un genero");
   }
 
-  // Buscar la categoría por su nombre
-  const category = await Category.findOne({ where: { nombre: categoryId } });
-  if (!category) {
-    throw new Error("La categoría proporcionada no existe");
-  }
-
-  // Crear el producto y asignar la categoría
+  // Crear el producto con la categoría proporcionada
   const newProduct = await Product.create({
     nombre,
     imagen,
@@ -47,8 +41,8 @@ const createProduct = async (
     tipo,
     talla,
     genero,
+    categoria, // Asignar la categoría directamente al producto
   });
-  await newProduct.addCategory(category);
 
   return newProduct;
 };
@@ -69,8 +63,6 @@ const moduleGetFavorite = async (userId) => {
     throw new Error("No se pudo obtener el favorito");
   }
 };
-
-////////////////////////////// FAVORITE //////////////////////////////
 
 const modulePostAddFavorite = async (productId, userId) => {
   try {
