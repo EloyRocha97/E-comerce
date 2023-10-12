@@ -11,7 +11,10 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["https://e-comerse-back.onrender.com"],
+    origin: [
+      "https://e-comerse-back.onrender.com",
+      "https://e-comerse-f.onrender.com",
+    ],
     credentials: true,
   })
 );
