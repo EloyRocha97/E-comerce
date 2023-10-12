@@ -16,6 +16,7 @@ const initialState = {
   allProducts: [],
   productById: [],
   categorys: [],
+  createProduct: {},
   genero: "",
   ropa: "",
   talla: "",

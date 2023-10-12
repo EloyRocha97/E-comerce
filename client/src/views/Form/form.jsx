@@ -23,8 +23,7 @@ const From = () => {
     " 41",
     " 42",
   ];
-  const generoA = ["Hombre", "Mujer"];
-  const categoriaA = ["Ropa", "Zapatillas"];
+
   const dispatch = useDispatch();
 
   const category = useSelector((state) => state.categorys);
@@ -189,7 +188,7 @@ const From = () => {
         <label>Categoria</label>
         <input
           type="text"
-          value={form.categoria}
+          value={form.categoryName}
           onChange={changeHandler}
           name="categoryName"
         />
