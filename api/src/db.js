@@ -3,21 +3,13 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_USER_R,
-  DB_PASSWORD_R,
-  DB_HOST_R,
-  DB_RENDER,
-} = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_USER_R, DB_PASSWORD_R, DB_HOST_R } =
+  process.env;
 
-const sequelize = new Sequelize(process.env.DB_RENDER, {
-  logging: false,
-  native: false,
-});
-console.log("DB_RENDER:", process.env.DB_RENDER);
+const sequelize = new Sequelize(
+  `postgres://${DB_USER_R}:${DB_PASSWORD_R}@${DB_HOST_R}/e_comerce_41iv`,
+  { logging: false, native: false }
+);
 
 //**
 const basename = path.basename(__filename);
