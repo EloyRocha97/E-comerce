@@ -1,8 +1,8 @@
 const app = require("./src/app");
 const { sequelize } = require("./src/db");
-const KEY = process.env.KEY || 3001;
+const PORT = process.env.PORT || 3001;
 
-app.listen(KEY, () => {
+app.listen(PORT, () => {
   sequelize.sync({ force: false });
   console.log("listening on port 3001");
 });

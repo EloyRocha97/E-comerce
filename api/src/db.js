@@ -17,6 +17,7 @@ const sequelize = new Sequelize(DB_RENDER, {
   logging: false,
   native: false,
 });
+console.log("DB_RENDER:", process.env.DB_RENDER);
 
 //**
 const basename = path.basename(__filename);
