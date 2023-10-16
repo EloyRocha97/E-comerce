@@ -3,8 +3,15 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_USER_R, DB_PASSWORD_R, DB_HOST_R } =
-  process.env;
+const {
+  DB_USER,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_USER_R,
+  DB_PASSWORD_R,
+  DB_HOST_R,
+  DB_RENDER,
+} = process.env;
 
 const sequelize = new Sequelize(DB_RENDER, {
   logging: false,
