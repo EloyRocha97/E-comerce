@@ -1,7 +1,8 @@
 const app = require("./src/app");
-const { sequelize } = require("./src/db");
+const { sequelize: renderDb } = require("./src/db");
 
-app.listen(3001, () => {
-  sequelize.sync({ force: false });
-  console.log("listening on port 3001");
+renderDb.sync({ force: false }).then(() => {
+  app.listen(3001, () => {
+    console.log("listening on port 3001");
+  });
 });
