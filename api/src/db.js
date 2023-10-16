@@ -13,7 +13,7 @@ const {
   DB_RENDER,
 } = process.env;
 
-const sequelize = new Sequelize(DB_RENDER, {
+const sequelize = new Sequelize(process.env.DB_RENDER, {
   logging: false,
   native: false,
 });
