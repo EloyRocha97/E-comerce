@@ -7,8 +7,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_USER_R, DB_PASSWORD_R, DB_HOST_R } =
   process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/e-comerce
-`,
+  `postgres://${DB_USER_R}:${DB_PASSWORD_R}@${DB_HOST_R}/e_comerce_41iv`,
   { logging: false, native: false }
 );
 
