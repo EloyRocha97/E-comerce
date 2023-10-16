@@ -1,9 +1,9 @@
-const { Router } = require("express");
+// const { Router } = require("express");
 
-const tallasRouter = Router();
+// const tallasRouter = Router();
 
-const { getTallas } = require("../Handlers/tallas.handler.js");
+// const { getTallas } = require("../Handlers/tallas.handler.js");
 
-tallasRouter.get("/", getTallas);
+// tallasRouter.get("/", getTallas);
 
-module.exports = tallasRouter;
+// module.exports = tallasRouter;
