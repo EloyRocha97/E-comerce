@@ -4,7 +4,7 @@ import { Home, Detail, Landing, Contacto, Form } from "./views";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./app.css";
-axios.defaults.baseURL = "https://e-comerse-back.onrender.com";
+axios.defaults.baseURL = "https://e-comerse-f.onrender.com";
 
 // Componente contenedor para las páginas que necesitan el Navbar
 const PageWithNavbar = ({ element: PageComponent }) => (
