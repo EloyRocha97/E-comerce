@@ -33,11 +33,6 @@ const Navbar = () => {
           Contact
         </Link>
       </div>
-      <div className={style.options}>
-        <Link to="/product/create" className={style.link}>
-          +
-        </Link>
-      </div>
 
       <div className={style.navLogin}>
         {isAuthenticated ? <LogOutButton /> : <LoginButton />}
