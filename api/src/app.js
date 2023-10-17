@@ -14,6 +14,7 @@ app.use(
     origin: [
       "https://e-comerse-back.onrender.com",
       "https://e-comerse-f.onrender.com",
+      "http://localhost:3000",
     ],
     credentials: true,
   })
