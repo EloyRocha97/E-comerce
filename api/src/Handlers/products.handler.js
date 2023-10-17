@@ -55,7 +55,7 @@ const postProduct = async (req, res) => {
       tipo,
       talla,
       genero,
-      categoria,
+      categoryName,
     } = req.body;
     const newProduct = await createProduct(
       nombre,
@@ -65,7 +65,7 @@ const postProduct = async (req, res) => {
       tipo,
       talla,
       genero,
-      categoria
+      categoryName
     );
     res.status(200).json(newProduct);
   } catch (error) {

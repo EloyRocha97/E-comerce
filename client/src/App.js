@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/NavBar/navbar";
-import { Home, Detail, Landing, Contacto } from "./views";
+import { Home, Detail, Landing, Contacto, Form } from "./views";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./app.css";
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://e-comerse-back.onrender.com";
 
 // Componente contenedor para las páginas que necesitan el Navbar
 const PageWithNavbar = ({ element: PageComponent }) => (
@@ -37,7 +37,10 @@ function App() {
           path="/contacto"
           element={<PageWithNavbar element={Contacto} />}
         />
-
+        <Route
+          path="/product/create"
+          element={<PageWithNavbar element={Form} />}
+        />
         <Route path="/home" element={<PageWithNavbar element={Home} />} />
         <Route
           path="/product/:id"

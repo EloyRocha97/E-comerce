@@ -52,10 +52,6 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
-      categoria: {
-        type: DataTypes.ENUM("Ropa", "Zapatilla"),
-        allowNull: false,
-      },
       genero: {
         type: DataTypes.ENUM("Hombre", "Mujer"),
         allowNull: false,
