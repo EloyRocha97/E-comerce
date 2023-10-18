@@ -132,7 +132,7 @@ const Filtros = () => {
           >
             <FormControlLabel value="Todos" control={<Radio />} label="Todos" />
             <FormLabel id="demo-radio-buttons-group-label">
-              Talla Pantalon
+              Talla Remeras
             </FormLabel>
             <FormControlLabel value="S" control={<Radio />} label="S" />
             <FormControlLabel value="M" control={<Radio />} label="M" />
