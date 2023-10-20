@@ -9,6 +9,21 @@ export const getProducts = () => {
   };
 };
 
+export const GET_NAME_PRODUTS = "GET_NAME_PRODUTS";
+export function getNameProduct(nombre) {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get(`/product?nombre=${nombre}`);
+      return dispatch({
+        type: GET_NAME_PRODUTS,
+        payload: json.data,
+      });
+    } catch (error) {
+      alert("No hay Producto con ese Nombre!");
+    }
+  };
+}
+
 export const GET_TALLAS = "GET_TALLAS";
 export const getTallas = () => {
   return async function (dispatch) {

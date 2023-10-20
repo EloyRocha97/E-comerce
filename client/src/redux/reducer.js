@@ -1,5 +1,6 @@
 import {
   GET_PRODUCTS,
+  GET_NAME_PRODUTS,
   CREATE_PRODUCTS,
   GET_CATEGORY,
   GET_PRODUCT_BY_ID,
@@ -28,6 +29,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
         allProducts: action.payload,
+      };
+
+    case GET_NAME_PRODUTS:
+      return {
+        ...state,
+        products: action.payload,
       };
 
     case GET_PRODUCT_BY_ID:

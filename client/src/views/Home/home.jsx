@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions";
 import LoadingCards from "../../components/CardContainer/loadingCards";
 import style from "./home.module.css";
+import SearchBar from "../Search/search";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,8 @@ const Home = () => {
         console.error(error);
         setLoading(false); // En caso de error, también se establece el estado de carga en falso
       });
-  }, [dispatch]);
+    setCurrentPage(1);
+  }, [genero, ropa, talla]);
 
   if (loading) {
     return <LoadingCards />;
@@ -51,25 +53,28 @@ const Home = () => {
   );
 
   return (
-    <div className={style.margin}>
-      <div className={style.home}>
-        {loading ? (
-          <LoadingCards />
-        ) : (
-          <React.Fragment>
-            <Filtros />
-            <CardContainer products={currentProducts} />
-          </React.Fragment>
-        )}
-      </div>
-      <div>
-        {!loading && (
-          <Pagination
-            currentPage={currentPage}
-            allProducts={filteredProducts.length}
-            paginate={setCurrentPage}
-          />
-        )}
+    <div className={style.search}>
+      <SearchBar />
+      <div className={style.margin}>
+        <div className={style.home}>
+          {loading ? (
+            <LoadingCards />
+          ) : (
+            <React.Fragment>
+              <Filtros />
+              <CardContainer products={currentProducts} />
+            </React.Fragment>
+          )}
+        </div>
+        <div>
+          {!loading && (
+            <Pagination
+              currentPage={currentPage}
+              allProducts={filteredProducts.length}
+              paginate={setCurrentPage}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

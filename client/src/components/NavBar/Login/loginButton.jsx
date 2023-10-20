@@ -10,7 +10,7 @@ const LoginButton = () => {
 
   const handleLogin = () => {
     loginWithRedirect({
-      redirectUri: "http://localhost:3000",
+      redirectUri: "http://localhost:3000/home",
     });
   };
 
