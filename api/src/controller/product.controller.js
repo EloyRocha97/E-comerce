@@ -8,7 +8,7 @@ const createProduct = async (
   tipo,
   talla,
   genero,
-  categoria // Cambié el nombre de 'category' a 'categoria'
+  categoryName
 ) => {
   if (!nombre || typeof nombre !== "string") {
     throw new Error("El nombre del producto es incorrecto");
@@ -41,7 +41,7 @@ const createProduct = async (
     tipo,
     talla,
     genero,
-    categoria, // Asignar la categoría directamente al producto
+    categoryName, // Asignar la categoría directamente al producto
   });
 
   return newProduct;
