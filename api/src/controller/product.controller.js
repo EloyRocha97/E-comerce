@@ -41,7 +41,7 @@ const createProduct = async (
     tipo,
     talla,
     genero,
-    categoryName, // Asignar la categoría directamente al producto
+    categoryName,
   });
 
   return newProduct;
